@@ -22,6 +22,9 @@ let webpackConfig = {
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
+    /*
+    使用npm run build打包，公共路径为'./'; 使用npm run dev 自定义建立服务时，公共路径为'/' ;使用npm run watch 监听时，用到的也是nodeJS的服务公共路径;
+    */
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
