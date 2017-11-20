@@ -62,7 +62,7 @@ let webpackConfig = {
         }
       },
       {
-        test :/\.(css|scss)$/,
+        test : /\.scss$/,
         use : [
           'style-loader',
           'css-loader',
@@ -72,7 +72,7 @@ let webpackConfig = {
               plugins: (loader) => [
                 require('postcss-px2rem')({remUnit:16}),
                 require('postcss-import')({root: loader.resourcePath}),
-                require('autoprefixer')({ browsers: ['iOS >= 7', 'Android >= 4.1']}), //CSS浏览器兼容
+                require('autoprefixer')({ browsers: ['ie>=8', '>1% in CN']}), //CSS浏览器兼容
                 require('cssnano')()  //压缩css
               ]
             }
