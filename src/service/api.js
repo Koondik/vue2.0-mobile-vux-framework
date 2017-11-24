@@ -56,6 +56,9 @@ export default {
     return new Promise((resolve, reject) => {
       $http.request(handleData(url, method, params, data)).then(res => {
         let _res = res.data;
+        if ((typeof _res) === "string") { // IE内核的浏览器拿到数据为字符串，需要自行解析
+          _res = JSON.parse(_res);
+        }
         resolve(_res);
       }).catch(error => {
         // layer.closeAll('loading');
